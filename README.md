@@ -1,9 +1,12 @@
 # super-dict
+
 SuperDict object is a wrapper for dict that restrict some functionality.
 It only supports multiple level keys and can use dot (.) to get inner value.
 For the first level, type for values can only be: dict, list, string, number, bool and None.
 From the second level, list can only be the last level. 
--- 
+
+---
+
 ## Contents
 <!-- TOC -->
 * [super-dict](#super-dict)
@@ -21,6 +24,8 @@ From the second level, list can only be the last level.
   * [Tests](#tests)
   * [Support](#support)
 <!-- TOC -->
+
+---
 
 ## Examples
 Example Data
@@ -182,12 +187,15 @@ list can ONLY be the last level!
 
 ```
 
+---
+
 ## Tests
 ```shell
 
 make test
 
 ```
+---
 
 ## Support
 If you have questions, feel free to reach out to [liozza@163.com].
