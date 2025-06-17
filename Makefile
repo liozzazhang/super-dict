@@ -1,3 +1,4 @@
+.PHONY: build upload upload-local check-local-pypi check-twine check_local_pypi check_twine test release release-local
 SHELL=/bin/bash
 local_pypi := ${LOCAL_PYPI}
 py := python
@@ -22,19 +23,19 @@ help_msg = 'make <target> local_pypi=<your_local_pypi> \
 build:
 	@python setup.py sdist bdist_wheel
 
-upload_local: check_local_pypi check_twine
+upload-local: check-local-pypi check-twine
 	@twine upload dist/*tar.gz -r $(local_pypi)
 
-upload: check_twine
+upload: check-twine
 	@twine upload dist/*tar.gz
 
-check_local_pypi:
+check-local-pypi:
 	@echo "========= Check Local Pypi ========="
 	@$(call check_defined, local_pypi, the local_pypi is required! example: ${help_msg})
 	@echo "local_pypi set to: ${local_pypi}"
 	@echo "========= Pass ========="
 
-check_twine:
+check-twine:
 	@echo "========= Check twine version ========="
 	@twine --version || pip install twine
 	@echo "========= Pass ========="
@@ -44,4 +45,4 @@ test:
 
 release: build upload
 
-release_local: build upload_local
+release-local: build upload-local

@@ -76,10 +76,12 @@ class SuperDict(object):
         self._flat = flatten_dict(self._settings, sep=sep, quiet=quiet)
         self._sep = sep
 
-    def get(self, key):
+    def get(self, key, default=None):
         """
         Get config by key, support dot(.) to search in objects.
 
+        :param default:
+        :type default: default value if key not found
         :param key: config key
         :return: object
         """
@@ -89,7 +91,7 @@ class SuperDict(object):
         else:
             if key in self._settings:
                 return self._settings[key]
-        return None
+        return default
 
     def set(self, key, value):
         """

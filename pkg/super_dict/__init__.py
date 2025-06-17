@@ -14,7 +14,7 @@ from super_dict.structure_data import SuperDict
 
 
 __program__ = "super_dict"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 '''
 Development Status :: 1 - Planning
 Development Status :: 2 - Pre-Alpha
